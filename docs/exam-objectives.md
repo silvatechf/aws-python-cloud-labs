@@ -23,10 +23,12 @@ The IAM and CLI learning path currently maps to these official Domain 2 skills:
 |---|---|---|---|
 | 2.1.3 | Configure programmatic access to AWS | [AWS CLI Identity Baseline](../02-iam-security/labs/01-aws-cli-identity-baseline/README.md) and [CloudShell Baseline](../02-iam-security/labs/02-cloudshell-baseline/README.md) | Practiced; validation in progress |
 | 2.1.5 | Make authenticated calls to AWS services | CLI identity baseline and CloudShell read-only API checks | Practiced; validation in progress |
-| 2.1.6 | Define permissions for IAM principals and resources | [IAM Fundamentals](../02-iam-security/lessons/01-iam-fundamentals.md) | In study |
+| 2.1.6 | Define permissions for IAM principals and resources | [IAM Fundamentals](../02-iam-security/lessons/01-iam-fundamentals.md) and [IAM DVA-C03 Study Guide](../02-iam-security/lessons/02-iam-dva-c03-study-guide.md) | In study |
 | 2.1.7 | Assume an IAM role | Planned STS and role-assumption lab | Not started |
 
 Also study skill 2.1.4 (presigned URLs) in the later S3/security section rather than forcing it into the first IAM lesson.
+
+The course's IAM quiz topics (users, groups, roles, policy statements, least privilege, root-user protection, IAM Credential Report, and shared responsibility) are retained as foundational knowledge and expanded into scenario-based practice in the [IAM DVA-C03 Study Guide](../02-iam-security/lessons/02-iam-dva-c03-study-guide.md). The guide distinguishes DVA-C03 developer skills from IAM administration tasks listed as out of scope.
 
 ## Study mapping
 
