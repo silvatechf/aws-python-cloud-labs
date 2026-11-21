@@ -96,6 +96,90 @@ Do not reduce every IAM scenario to "Allow wins if any policy says Allow." The r
 
 For a common same-account case involving identity-based and resource-based permissions policies, an applicable Allow in either can grant access unless an applicable explicit Deny or another limiting policy changes the result. Cross-account access generally requires authorization on both sides.
 
+
+## AWS CLI hands-on: identity and policy discovery
+
+The following read-only commands were executed during the study. They do not create or modify AWS resources.
+
+### Identify the caller
+
+```powershell
+aws sts get-caller-identity
+```
+
+This returns the caller's account and principal identifiers. It is an identity check, not a test of permissions on every AWS service.
+
+### Inspect IAM users and groups
+
+```powershell
+aws iam list-users
+aws iam list-groups-for-user --user-name <iam-user>
+aws iam get-user --user-name <iam-user>
+```
+
+Observed in the study account: one IAM user was returned by `list-users`; `list-groups-for-user` returned an empty list for the tested user. This is an observation about that account at that time, not a general IAM rule.
+
+### Understand policy scopes
+
+```powershell
+aws iam list-policies --scope Local --max-items 10
+aws iam list-policies --scope AWS --only-attached
+aws iam list-user-policies --user-name <iam-user>
+aws iam list-attached-user-policies --user-name <iam-user>
+```
+
+- `--scope Local` lists customer-managed policies.
+- `--scope AWS` lists AWS-managed policies.
+- `--only-attached` restricts results to attached managed policies.
+- `list-user-policies` lists inline policies for the user.
+- `list-attached-user-policies` lists managed policies attached directly to the user.
+
+An empty result from `--scope Local` does not mean the user has no policies: AWS-managed and inline policies are different categories.
+
+### Inspect a managed policy
+
+```powershell
+aws iam get-policy --policy-arn <policy-arn>
+aws iam get-policy-version --policy-arn <policy-arn> --version-id <version-id>
+```
+
+- `get-policy` returns metadata, including `DefaultVersionId`.
+- `get-policy-version` returns the JSON policy document for the requested version.
+- `DefaultVersionId` is not an account ID, CLI version, or attachment count.
+
+### Filter and paginate CLI output
+
+JMESPath can filter the response locally:
+
+```powershell
+aws iam list-users --query "Users[?Path=='/'].UserName" --output text
+```
+
+The filter selects users whose `Path` is `/`, then projects their `UserName` values. The query does not modify AWS data.
+
+For paginated operations, `--max-items` limits the number of items returned to the CLI caller in one page. A continuation token may be returned for subsequent retrieval. Do not confuse pagination with merely truncating terminal output.
+
+## CloudShell hands-on: credential source and principal
+
+CloudShell is a browser-based shell integrated with the AWS Management Console. It uses credentials made available to the environment; do not copy local long-term access keys into CloudShell.
+
+During this study, the following observations were verified:
+
+- The shell home directory was `/home/cloudshell-user`.
+- `AWS_REGION` and `AWS_DEFAULT_REGION` were both set to `us-east-1`.
+- `aws configure list` reported the region source as environment variables.
+- The credential source was reported by the CLI as `container-role`.
+- `aws sts get-caller-identity` and `aws iam get-user` identified the same IAM user used by the local Windows CLI.
+
+Important distinction:
+
+- **Credential provider/source:** where the CLI obtains credentials.
+- **Authenticated principal:** the identity represented by those credentials, identified through STS.
+
+Do not infer the IAM principal type from the credential-source label alone. Use the STS ARN as evidence of the caller.
+
+See [Lab 02 — CloudShell Baseline](../labs/02-cloudshell-baseline/README.md) for the reproducible command sequence.
+
 ## Credential strategy for developers
 
 Prefer this order:
