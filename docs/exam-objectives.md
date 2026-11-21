@@ -21,8 +21,8 @@ The IAM and CLI learning path currently maps to these official Domain 2 skills:
 
 | Official skill | Focus | Repository evidence | Status |
 |---|---|---|---|
-| 2.1.3 | Configure programmatic access to AWS | [AWS CLI Identity Baseline](../02-iam-security/labs/01-aws-cli-identity-baseline/README.md) | Not validated |
-| 2.1.5 | Make authenticated calls to AWS services | CLI identity baseline and later Boto3 labs | Not validated |
+| 2.1.3 | Configure programmatic access to AWS | [AWS CLI Identity Baseline](../02-iam-security/labs/01-aws-cli-identity-baseline/README.md) and [CloudShell Baseline](../02-iam-security/labs/02-cloudshell-baseline/README.md) | Practiced; validation in progress |
+| 2.1.5 | Make authenticated calls to AWS services | CLI identity baseline and CloudShell read-only API checks | Practiced; validation in progress |
 | 2.1.6 | Define permissions for IAM principals and resources | [IAM Fundamentals](../02-iam-security/lessons/01-iam-fundamentals.md) | In study |
 | 2.1.7 | Assume an IAM role | Planned STS and role-assumption lab | Not started |
 
@@ -48,7 +48,7 @@ Update this table as each objective is studied and validated. Use links to concr
 | Objective / skill | Studied | Practiced | Validated | Evidence |
 |---|---|---|---|---|
 | Domain 1 | No | No | No | — |
-| Domain 2 | In progress | No | No | IAM Fundamentals |
+| Domain 2 | In progress | In progress | No | IAM Fundamentals; AWS CLI and CloudShell labs |
 | Domain 3 | No | No | No | — |
 | Domain 4 | No | No | No | — |
 
