@@ -48,7 +48,7 @@ Add dated entries below as lessons are completed. Keep entries concise and link 
 
 | Date | Course section / lesson | Concepts | Open questions | Lab |
 |---|---|---|---|---|
-| — | Not started | — | — | — |
+| 2026-11-21 | IAM / AWS CLI and CloudShell hands-on | Authentication vs authorization; IAM users/groups/roles; managed vs inline policies; explicit deny; JMESPath; pagination concepts; credential provider vs STS principal; CloudShell region and identity checks | Policy document inspection; trust policy vs permissions policy; STS AssumeRole; least-privilege role lab | [CLI Identity Baseline](../02-iam-security/labs/01-aws-cli-identity-baseline/README.md); [CloudShell Baseline](../02-iam-security/labs/02-cloudshell-baseline/README.md) |
 
 ## Official references
 
