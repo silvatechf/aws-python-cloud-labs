@@ -6,6 +6,7 @@ Study identity, authentication, authorization, IAM policies and roles, temporary
 
 1. [Lesson 01 — IAM Fundamentals](lessons/01-iam-fundamentals.md)
 2. [Lab 01 — AWS CLI Identity Baseline](labs/01-aws-cli-identity-baseline/README.md)
+3. [Lab 02 — AWS CloudShell Baseline](labs/02-cloudshell-baseline/README.md)
 3. Policy evaluation and IAM policy types.
 4. IAM roles, trust policies, STS, and temporary credentials.
 5. Application access patterns with Boto3 and role-based credentials.
@@ -21,4 +22,18 @@ Study identity, authentication, authorization, IAM policies and roles, temporary
 
 ## Status
 
-In progress — foundational lesson and read-only CLI identity lab added. Completion requires learner answers and verified local CLI evidence.
+**In progress — foundational IAM and AWS CLI/CloudShell exploration documented.**
+
+Evidence completed:
+- Local AWS CLI v2 identity and configuration inspection.
+- Read-only IAM user, group, and policy inventory commands.
+- AWS-managed versus customer-managed policy distinction.
+- CloudShell identity, region, credential-source, and read-only EC2 API checks.
+- Quiz practice on explicit deny, JMESPath filtering, pagination, and credential source versus principal.
+
+Still required before marking IAM complete:
+- Inspect a managed policy document with `get-policy-version`.
+- Complete trust policy versus permissions policy scenarios.
+- Practice IAM roles and STS role assumption.
+- Build and validate a least-privilege role-based access lab.
+- Review remaining IAM/security objectives against the official DVA-C03 exam guide.
