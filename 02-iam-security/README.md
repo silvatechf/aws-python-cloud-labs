@@ -7,9 +7,9 @@ Study identity, authentication, authorization, IAM policies and roles, temporary
 1. [Lesson 01 — IAM Fundamentals](lessons/01-iam-fundamentals.md)
 2. [Lab 01 — AWS CLI Identity Baseline](labs/01-aws-cli-identity-baseline/README.md)
 3. [Lab 02 — AWS CloudShell Baseline](labs/02-cloudshell-baseline/README.md)
-3. Policy evaluation and IAM policy types.
-4. IAM roles, trust policies, STS, and temporary credentials.
-5. Application access patterns with Boto3 and role-based credentials.
+4. Policy evaluation and IAM policy types.
+5. IAM roles, trust policies, STS, and temporary credentials.
+6. Application access patterns with Boto3 and role-based credentials.
 
 ## Security principles
 
